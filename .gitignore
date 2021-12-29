@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Confidential Files (e.g. such as Credentials).
+Confidential/
+
+## .well-known for Certificates and the like.
+.well-known/
+
 # User-specific files
 *.rsuser
 *.suo
