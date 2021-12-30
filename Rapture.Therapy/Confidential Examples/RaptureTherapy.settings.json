@@ -1,0 +1,17 @@
+{
+  "RaptureTherapy": {
+    "Database": {
+      "DatabaseServer": "",
+      "DatabaseName": "RaptureTherapy",
+      "DatabaseSchema": "Dad",
+      "ApplicationName": "RaptureTherapy",
+      "UserName": "",
+      "Password": ""
+    },
+    "GoogleReCaptcha": {
+      "SiteKey": "",
+      "Secret": "",
+      "MinimumScore": 0.7
+    }
+  }
+}

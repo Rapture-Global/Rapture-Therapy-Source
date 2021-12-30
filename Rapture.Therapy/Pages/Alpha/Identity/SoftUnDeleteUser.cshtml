@@ -1,0 +1,47 @@
+﻿@page
+@model Rapture.Therapy.Pages.Alpha.Identity.SoftUnDeleteUserModel
+@{
+    ViewData["Title"] = "Soft Un-Delete A User";
+    Layout = "_LayoutAlpha";
+}
+
+<script src="https://www.google.com/recaptcha/api.js?render=@Model.GoogleReCaptchaSiteKey"></script>
+<script>
+    grecaptcha.ready(function () {
+        grecaptcha.execute('@Model.GoogleReCaptchaSiteKey', { action: 'homepage' }).then(function (token) {
+            document.getElementById("GoogleReCaptchaValueId").value = token;
+        });
+    });
+</script>
+
+<h3>Alpha - Soft Un-Delete A User Account</h3>
+
+<form method="POST">
+    <div>
+        You Are Signed In: @if (Model.UserSession.IsSignedIn)
+        {
+            <text>Yes</text>
+        }
+        else
+        {
+            <text>No</text>
+        }
+    </div>
+    <br />
+    <div>User Display Name: @Model.UserSession.DisplayName</div>
+    <br />
+    <div>User Roles Ids: @Model.UserSession.GetRoleIdsAsString()</div>
+    <div>User Roles Names: @Model.UserSession.GetRoleNamesAsString()</div>
+    <br />
+    <div>Google ReCaptcha Score: <span>@Model.GoogleReCaptchaScore</span></div>
+    <br />
+    <div>Message: <span>@Model.Message</span></div>
+
+    <div>User Guid: <input type="text" asp-for="UserGuid" /></div>
+    <br />
+    <input type="submit" name="Action" value="Soft Un-Delete" />
+
+    <input type="hidden" id="GoogleReCaptchaValueId" asp-for="GoogleReCaptchaValue" />
+</form>
+<br />
+<br />

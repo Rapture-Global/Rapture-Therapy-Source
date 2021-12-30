@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Rapture.Therapy</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css?avoidCache=@DateTime.UtcNow" />
+</head>
+<body>
+
+    <header class="headerRapture">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <a href="/"><img src="/Images/Simba - 8 Percent.jpg" alt="Therapy.Rapture.global" title="Therapy.Rapture.global" style="height: 100px;" /></a>
+            <h1 class="display-4" style="margin: 25px; color: orange;">Rapture Global - Therapy.</h1>
+        </nav>
+    </header>
+
+    <div style="padding-left: 10px;">
+        <h1>Alpha - Experimental Software</h1>
+
+        <p>Please be advised that any Interaction you have with this Section of the Web Site is with/using purely Experimental Alpha Software.</p>
+
+        <p>If you Continue you Consent to your IP Address being logged.</p>
+
+        <p>
+            You also acknowledge that any Accounts you Create and any Information you Add or Provide will be stored
+            on Servers, and in one or more Databases, in the UK or the USA, and may be lost at any stage.
+        </p>
+
+        <p>And if you have any feedback, please visit <a target="_blank" href="https://www.Eadent.com/Contact">https://www.Eadent.com/Contact</a>.</p>
+    </div>
+
+    <div style="height: 100%; width: 100%;">
+        <div style="float: left; width: 20%;">
+            <h3 style="text-align: center;">Menu/Options</h3>
+
+            <ol type="1" start="0">
+                <li>
+                    <a href="/Alpha/Identity/RegisterUser">Register A User Account</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/SignInUser">Sign In To A User Account</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/CheckAndUpdateUserSession">Check And Update A User Account Session</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/ChangeUserEMailAddress">Change User E-Mail Address</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/ChangeUserPassword">Change User Password</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/SoftDeleteUser">Soft Delete A User Account</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/SoftUnDeleteUser">Soft Un-Delete A User Account</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/HardDeleteUser">Hard Delete A User Account</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/SignOutUser">Sign Out From A User Account</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/GlobalAdministratorAuthorisation">Global Administrator Authorisation Test</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Identity/UserPasswordResetActions">User Password Reset Actions</a>
+                </li>
+                <li>
+                    <a href="/Alpha/Files/UploadFile">Upload A File</a>
+                </li>
+            </ol>
+
+        </div>
+
+        <div style="float: left; width: 70%;" class="container bodyRapture">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer style="clear: left; width: 97%; margin-left: 25px;" class="border-top footer footerRapture text-muted">
+        <div>
+            Copyright &copy; 2021<script type="text/javascript" language="javascript">
+<!--
+                var BrowserNow = new Date();
+                if (BrowserNow.getFullYear() > 2021)
+                    document.write("-" + BrowserNow.getFullYear());
+//-->
+            </script>
+            Rapture Global. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@model Rapture.Therapy.Pages.Alpha.Identity.CheckAndUpdateUserSessionModel
+@{
+    ViewData["Title"] = "Check User Account Session";
+    Layout = "_LayoutAlpha";
+}
+
+<h3>Alpha - Check And Update A User Account Session</h3>
+
+<form method="POST">
+    <div>
+        You Are Signed In: @if (Model.UserSession.IsSignedIn)
+        {
+            <text>Yes</text>
+        }
+        else
+        {
+            <text>No</text>
+        }
+    </div>
+    <br />
+    <div>User Display Name: @Model.UserSession.DisplayName</div>
+    <br />
+    <div>User Roles Ids: @Model.UserSession.GetRoleIdsAsString()</div>
+    <div>User Roles Names: @Model.UserSession.GetRoleNamesAsString()</div>
+    <br />
+    <div>Message: <span>@Model.Message</span></div>
+    <br />
+    <input type="submit" name="Action" value="Check" />
+    <input type="submit" name="Action" value="Sign Out" />
+</form>
+<br />
+<br />

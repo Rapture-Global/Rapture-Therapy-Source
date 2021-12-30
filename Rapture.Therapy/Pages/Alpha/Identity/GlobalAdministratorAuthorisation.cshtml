@@ -1,0 +1,29 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@model Rapture.Therapy.Pages.Alpha.Identity.GlobalAdministratorAuthorisationModel
+@{
+    ViewData["Title"] = "Authorisation/Permission Test";
+    Layout = "_LayoutAlpha";
+}
+
+<h3>Alpha - Authorisation/Permission Test</h3>
+
+<div>
+    You Are Signed In: @if (Model.UserSession.IsSignedIn)
+    {
+        <text>Yes</text>
+    }
+    else
+    {
+        <text>No</text>
+    }
+</div>
+<br />
+<div>User Display Name: @Model.UserSession.DisplayName</div>
+<br />
+<div>User Roles Ids: @Model.UserSession.GetRoleIdsAsString()</div>
+<div>User Roles Names: @Model.UserSession.GetRoleNamesAsString()</div>
+<br />
+<div>Message: <span>@Model.Message</span></div>
+<br />
+<br />

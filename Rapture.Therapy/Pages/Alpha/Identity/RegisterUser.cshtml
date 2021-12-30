@@ -1,0 +1,62 @@
+﻿@page
+@using Eadent.Identity.Definitions
+@model Rapture.Therapy.Pages.Alpha.Identity.RegisterUserModel
+@{
+    ViewData["Title"] = "Register A User";
+    Layout = "_LayoutAlpha";
+}
+
+<script src="https://www.google.com/recaptcha/api.js?render=@Model.GoogleReCaptchaSiteKey"></script>
+<script>
+    grecaptcha.ready(function () {
+        grecaptcha.execute('@Model.GoogleReCaptchaSiteKey', { action: 'homepage' }).then(function (token) {
+            document.getElementById("GoogleReCaptchaValueId").value = token;
+        });
+    });
+</script>
+
+<h3>Alpha - Register A User Account</h3>
+
+<form method="POST">
+    <div>
+        You Are Signed In: @if (Model.UserSession.IsSignedIn)
+        {
+            <text>Yes</text>
+        }
+        else
+        {
+            <text>No</text>
+        }
+    </div>
+    <br />
+    <div>
+        Role:
+        <input asp-for="RoleId" type="radio" id="RoleUserId" value="@Role.User" checked /> <label for="RoleUserId">User</label>
+        <input asp-for="RoleId" type="radio" id="RoleGlobalAdministratorId" value="@Role.GlobalAdministrator" /> <label for="RoleGlobalAdministratorId">Global Administrator</label>
+    </div>
+    <br />
+    <div>User Display Name: @Model.UserSession.DisplayName</div>
+    <br />
+    <div>User Roles Ids: @Model.UserSession.GetRoleIdsAsString()</div>
+    <div>User Roles Names: @Model.UserSession.GetRoleNamesAsString()</div>
+    <br />
+    <div>Google ReCaptcha Score: <span>@Model.GoogleReCaptchaScore</span></div>
+    <br />
+    <div>Domain Name: <span>@Model.DomainUrl</span></div>
+    <br />
+    <div>Message: <span>@Model.Message</span></div>
+    <br />
+    <p><strong>NOTE:</strong> For the purposes of this Alpha Software, any text may be used for the E-Mail Address Field.</p>
+
+    <div>E-Mail Address: <input type="text" asp-for="EMailAddress" /></div>
+    <div>Display Name: <input type="text" asp-for="DisplayName" /></div>
+    <div>Password: <input type="password" asp-for="Password" /></div>
+    <div>Confirm Password: <input type="password" asp-for="ConfirmPassword" /></div>
+    <br />
+    <input type="submit" name="Action" value="Register" />
+    <input type="submit" name="Action" value="Cancel" />
+
+    <input type="hidden" id="GoogleReCaptchaValueId" asp-for="GoogleReCaptchaValue" />
+</form>
+<br />
+<br />
