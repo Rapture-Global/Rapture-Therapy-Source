@@ -42,7 +42,17 @@ button.accept-policy {
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 97%;
   white-space: nowrap;
-  line-height: 60px;
+  line-height: 30px; /* Vertically center the text there */
+}
+
+.bodyRapture {
+    margin-left: 25px;
+}
+
+.footerRapture {
+    margin-top: 5px;
+    margin-left: 25px;
+    font-size: 15px;
 }

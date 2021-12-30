@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* TODO: Determine why the <header> element in .Net 6 does not work well with CSS Isolation - the <header> element does not appear to get the special CSS Isolation Scope Identifier. */
+.headerRapture {
+    width: 97%;
+    margin-left: 25px;
+}
