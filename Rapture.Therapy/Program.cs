@@ -50,7 +50,6 @@ services.AddTransient<IUserSession, UserSession>();
 services.AddRazorPages();
 services.AddDirectoryBrowser();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
