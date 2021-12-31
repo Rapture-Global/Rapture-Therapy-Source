@@ -1,12 +1,8 @@
-﻿using Eadent.Identity.Access;
+﻿using Eadent.Common.WebApi.Helpers;
+using Eadent.Identity.Access;
 using Eadent.Identity.DataAccess.EadentUserIdentity.Entities;
 using Eadent.Identity.Definitions;
 using Eadent.Identity.Helpers;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using Eadent.Common.WebApi.Helpers;
 
 namespace Rapture.Therapy.Sessions
 {

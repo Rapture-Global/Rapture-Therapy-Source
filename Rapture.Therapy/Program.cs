@@ -15,7 +15,7 @@ builder.Services.AddRazorPages();
 builder.Configuration.AddJsonFile("Confidential/EadentIdentity.settings.json", optional: false, reloadOnChange: false);
 builder.Configuration.AddJsonFile("Confidential/RaptureTherapy.settings.json", optional: false, reloadOnChange: false);
 
-// NLog: Setup NLog for Dependency injection
+// NLog: Setup NLog for Dependency Injection.
 builder.Logging.ClearProviders();
 builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
 builder.Host.UseNLog();
