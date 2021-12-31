@@ -12,10 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Configuration.AddJsonFile("Confidential/EadentIdentity.settings.json", optional: false, reloadOnChange: false);
-builder.Configuration.AddJsonFile("Confidential/RaptureTherapy.settings.json", optional: false, reloadOnChange: false);
+builder.Configuration.AddJsonFile("Confidential/Eadent.Identity.settings.json", optional: false, reloadOnChange: false);
+builder.Configuration.AddJsonFile("Confidential/Rapture.Therapy.settings.json", optional: false, reloadOnChange: false);
 
-// NLog: Setup NLog for Dependency Injection.
+// NLog: Setup NLog for Dependency I    njection.
 builder.Logging.ClearProviders();
 builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
 builder.Host.UseNLog();
