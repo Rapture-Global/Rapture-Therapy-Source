@@ -5,14 +5,15 @@
         "DatabaseServer": "",
         "DatabaseName": "",
         "DatabaseSchema": "Dad_Identity",
-        "ApplicationName": "EadentIdentity",
+        "ApplicationName": "Eadent.Identity",
         "UserName": "",
         "Password": ""
       },
       "Security": {
         "Hasher": {
+          "PasswordSalt": "",
           "SiteSalt": "",
-          "IterationCount": 10000,
+          "IterationCount": 1000,
           "NumDerivedKeyBytes": 128
         }
       },
