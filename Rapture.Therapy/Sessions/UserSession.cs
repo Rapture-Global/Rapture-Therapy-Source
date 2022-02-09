@@ -51,6 +51,8 @@ namespace Rapture.Therapy.Sessions
             HttpContext?.Session.SetString(SignedInTokenName, SessionToken);
 
             NLog.MappedDiagnosticsLogicalContext.Set("SessionGuid", SessionGuid);
+
+            Logger.LogInformation($"UserSessionToken = {SessionToken} : UserSessionGuid = {SessionGuid}");
         }
 
         private void HandleSignedInSession(UserSessionEntity userSessionEntity)
@@ -145,9 +147,9 @@ namespace Rapture.Therapy.Sessions
             {
                 SessionToken = userSessionEntity.UserSessionToken;
                 SessionGuid = userSessionEntity.UserSessionGuid;
-            }
 
-            HandleSignedInSession(userSessionEntity);
+                HandleSignedInSession(userSessionEntity);
+            }
 
             SetSessionTokenAndLoggingGuid();
         }
