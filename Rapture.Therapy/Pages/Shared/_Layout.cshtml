@@ -41,6 +41,21 @@
     </header>
 
     <div class="container bodyRapture">
+        <div style="color: mediumvioletred;">
+            @{
+                DateTime UtcNow = DateTime.UtcNow;
+
+                <text>[Server UTC] @UtcNow.ToString("dddd, d-MMM-yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo) - @UtcNow.ToString("h:mm:ss tt", System.Globalization.DateTimeFormatInfo.InvariantInfo) - </text>
+                <script type="text/javascript">
+			        <!--
+				        var BrowserNow = new Date();
+				        document.write("[Browser] " + BrowserNow.toDateString() + " - " + BrowserNow.toTimeString());
+			        //-->
+                </script>
+                <br /><br />
+            }
+        </div>
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -50,7 +65,6 @@
         <div>
             Copyright &copy; 2021<script type="text/javascript" language="javascript">
 <!--
-                var BrowserNow = new Date();
                 if (BrowserNow.getFullYear() > 2021)
                     document.write("-" + BrowserNow.getFullYear());
 //-->

@@ -17,6 +17,21 @@
     </header>
 
     <div style="padding-left: 10px;">
+        <div style="color: mediumvioletred;">
+            @{
+                DateTime UtcNow = DateTime.UtcNow;
+
+                <text>[Server UTC] @UtcNow.ToString("dddd, d-MMM-yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo) - @UtcNow.ToString("h:mm:ss tt", System.Globalization.DateTimeFormatInfo.InvariantInfo) - </text>
+                <script type="text/javascript">
+			        <!--
+				        var BrowserNow = new Date();
+				        document.write("[Browser] " + BrowserNow.toDateString() + " - " + BrowserNow.toTimeString());
+			        //-->
+                </script>
+                <br /><br />
+            }
+        </div>
+
         <h1>Alpha - Experimental Software</h1>
 
         <p>Please be advised that any Interaction you have with this Section of the Web Site is with/using purely Experimental Alpha Software.</p>
@@ -87,7 +102,6 @@
         <div>
             Copyright &copy; 2021<script type="text/javascript" language="javascript">
 <!--
-                var BrowserNow = new Date();
                 if (BrowserNow.getFullYear() > 2021)
                     document.write("-" + BrowserNow.getFullYear());
 //-->
