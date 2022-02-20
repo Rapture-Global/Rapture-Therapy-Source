@@ -48,8 +48,8 @@
                 <text>[Server UTC] @UtcNow.ToString("dddd, d-MMM-yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo) - @UtcNow.ToString("h:mm:ss tt", System.Globalization.DateTimeFormatInfo.InvariantInfo) - </text>
                 <script type="text/javascript">
 			        <!--
-				        var BrowserNow = new Date();
-				        document.write("[Browser] " + BrowserNow.toDateString() + " - " + BrowserNow.toTimeString());
+				        var browserNow = new Date();
+				        document.write("[Browser] " + browserNow.toDateString() + " - " + browserNow.toTimeString());
 			        //-->
                 </script>
                 <br /><br />
@@ -65,8 +65,8 @@
         <div>
             Copyright &copy; 2021<script type="text/javascript" language="javascript">
 <!--
-                if (BrowserNow.getFullYear() > 2021)
-                    document.write("-" + BrowserNow.getFullYear());
+                if (browserNow.getFullYear() > 2021)
+                    document.write("-" + browserNow.getFullYear());
 //-->
             </script>
             Rapture Global. All Rights Reserved.
