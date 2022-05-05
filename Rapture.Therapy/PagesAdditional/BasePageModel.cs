@@ -13,13 +13,11 @@ namespace Rapture.Therapy.PagesAdditional
     {
         private ILogger Logger { get; }
 
-        protected RaptureTherapySettings RaptureTherapySettings { get; }
-
         protected IEadentUserIdentity EadentUserIdentity { get; }
 
         public IUserSession UserSession { get; }
 
-        public string GoogleReCaptchaSiteKey => RaptureTherapySettings.GoogleReCaptcha.SiteKey;
+        public string GoogleReCaptchaSiteKey => RaptureTherapySettings.Instance.GoogleReCaptcha.SiteKey;
 
         public decimal GoogleReCaptchaScore { get; set; }
 
@@ -30,8 +28,6 @@ namespace Rapture.Therapy.PagesAdditional
         {
             Logger = logger;
 
-            RaptureTherapySettings = configuration.GetSection(RaptureTherapySettings.SectionName).Get<RaptureTherapySettings>();
-
             UserSession = userSession;
 
             EadentUserIdentity = eadentUserIdentity;
@@ -41,7 +37,7 @@ namespace Rapture.Therapy.PagesAdditional
         {
             var verifyRequestDto = new ReCaptchaVerifyRequestDto()
             {
-                secret = RaptureTherapySettings.GoogleReCaptcha.Secret,
+                secret = RaptureTherapySettings.Instance.GoogleReCaptcha.Secret,
                 response = GoogleReCaptchaValue,
                 remoteip = HttpHelper.GetLocalIpAddress(Request)
             };

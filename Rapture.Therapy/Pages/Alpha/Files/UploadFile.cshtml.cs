@@ -1,5 +1,6 @@
 using Eadent.Identity.Access;
 using Microsoft.AspNetCore.Mvc;
+using Rapture.Therapy.Configuration;
 using Rapture.Therapy.PagesAdditional;
 using Rapture.Therapy.Sessions;
 
@@ -46,7 +47,7 @@ namespace Rapture.Therapy.Pages.Alpha.Files
 
             GoogleReCaptchaScore = googleReCaptchaScore;
 
-            if (googleReCaptchaScore < RaptureTherapySettings.GoogleReCaptcha.MinimumScore)
+            if (googleReCaptchaScore < RaptureTherapySettings.Instance.GoogleReCaptcha.MinimumScore)
             {
                 Message = "You are unable to Upload A File because of a poor Google ReCaptcha Score.";
             }

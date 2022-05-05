@@ -33,9 +33,12 @@ services.AddSession(options =>
 
 services.AddHttpContextAccessor();
 
-Eadent.Identity.Startup.ConfigureServices(services, builder.Configuration.GetSection(EadentIdentitySettings.SectionName).Get<EadentIdentitySettings>());
+builder.Configuration.GetSection(EadentIdentitySettings.SectionName).Get<EadentIdentitySettings>();
+builder.Configuration.GetSection(RaptureTherapySettings.SectionName).Get<RaptureTherapySettings>();
 
-var databaseSettings = builder.Configuration.GetSection(RaptureTherapySettings.SectionName).Get<RaptureTherapySettings>().Database;
+Eadent.Identity.Startup.ConfigureServices(services);
+
+var databaseSettings = RaptureTherapySettings.Instance.Database;
 
 string connectionString = $"Server={databaseSettings.DatabaseServer};Database={databaseSettings.DatabaseName};Application Name={databaseSettings.ApplicationName};User Id={databaseSettings.UserName};Password={databaseSettings.Password};";
 

@@ -7,15 +7,12 @@ namespace Rapture.Therapy.DataAccess.RaptureTherapy.Databases
 {
     public class RaptureTherapyDatabase : BaseDatabase, IRaptureTherapyDatabase
     {
-        // Attributes/Properties.
-        private RaptureTherapySettings RaptureTherapySettings{ get; }
-
         // Database Tables.
         public virtual DbSet<RaptureTherapyDatabaseVersionEntity> RaptureTherapyDatabaseVersions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema(RaptureTherapySettings.Database.DatabaseSchema);
+            modelBuilder.HasDefaultSchema(RaptureTherapySettings.Instance.Database.DatabaseSchema);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -25,12 +22,10 @@ namespace Rapture.Therapy.DataAccess.RaptureTherapy.Databases
             base.OnConfiguring(optionsBuilder);
         }
 
-        public RaptureTherapyDatabase(IConfiguration configuration, DbContextOptions<RaptureTherapyDatabase> options) : base(options)
+        public RaptureTherapyDatabase(DbContextOptions<RaptureTherapyDatabase> options) : base(options)
         {
-            RaptureTherapySettings = configuration.GetSection(RaptureTherapySettings.SectionName).Get<RaptureTherapySettings>();
-
-            DatabaseName = RaptureTherapySettings.Database.DatabaseName;
-            DatabaseSchema = RaptureTherapySettings.Database.DatabaseSchema;
+            DatabaseName = RaptureTherapySettings.Instance.Database.DatabaseName;
+            DatabaseSchema = RaptureTherapySettings.Instance.Database.DatabaseSchema;
         }
     }
 }

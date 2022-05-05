@@ -4,6 +4,13 @@
     {
         public const string SectionName = "RaptureTherapy";
 
+        public static RaptureTherapySettings Instance { get; private set; }
+
+        public RaptureTherapySettings()
+        {
+            Instance = this;
+        }
+
         public class DatabaseSettings
         {
             public string DatabaseServer { get; set; }

@@ -31,7 +31,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 
             GoogleReCaptchaScore = googleReCaptchaScore;
 
-            if (googleReCaptchaScore<RaptureTherapySettings.GoogleReCaptcha.MinimumScore)
+            if (googleReCaptchaScore<RaptureTherapySettings.Instance.GoogleReCaptcha.MinimumScore)
             {
                 Message = "You are unable to Soft Delete because of a poor Google ReCaptcha Score.";
             }

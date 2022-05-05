@@ -3,6 +3,7 @@ using Eadent.Identity.Access;
 using Eadent.Identity.DataAccess.EadentUserIdentity.Entities;
 using Eadent.Identity.Definitions;
 using Microsoft.AspNetCore.Mvc;
+using Rapture.Therapy.Configuration;
 using Rapture.Therapy.PagesAdditional;
 using Rapture.Therapy.Sessions;
 
@@ -30,7 +31,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 
             GoogleReCaptchaScore = googleReCaptchaScore;
 
-            if (googleReCaptchaScore < RaptureTherapySettings.GoogleReCaptcha.MinimumScore)
+            if (googleReCaptchaScore < RaptureTherapySettings.Instance.GoogleReCaptcha.MinimumScore)
             {
                 Message = "You are unable to Change the E-Mail Address because of a poor Google ReCaptcha Score.";
             }
