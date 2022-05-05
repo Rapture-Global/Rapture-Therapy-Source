@@ -41,7 +41,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 
             HttpContext.Session.SetString(ResetTokenName, resetToken);
 
-            (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CheckAndUpdateUserPasswordReset(resetToken, HttpHelper.GetRemoteAddress(Request));
+            (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CheckAndUpdateUserPasswordReset(resetToken, HttpHelper.GetRemoteIpAddress(Request));
 
             Message = $"PasswordResetRequestStatusId = {passwordResetRequestStatusId}";
         }
@@ -66,7 +66,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
             }
             else
             {
-                (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CommitUserPasswordReset(resetToken, NewPassword, HttpHelper.GetRemoteAddress(Request), googleReCaptchaScore);
+                (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CommitUserPasswordReset(resetToken, NewPassword, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
 
                 Message = $"PasswordResetRequestStatusId = {passwordResetRequestStatusId}";
             }

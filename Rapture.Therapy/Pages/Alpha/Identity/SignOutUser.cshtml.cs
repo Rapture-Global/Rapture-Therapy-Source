@@ -28,7 +28,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 
             if (action == "Sign Out")
             {
-                SignOutStatus signOutStatusId = EadentUserIdentity.SignOutUser(UserSession.SessionToken, HttpHelper.GetRemoteAddress(Request));
+                SignOutStatus signOutStatusId = EadentUserIdentity.SignOutUser(UserSession.SessionToken, HttpHelper.GetRemoteIpAddress(Request));
 
                 if (signOutStatusId != SignOutStatus.Error)
                 {

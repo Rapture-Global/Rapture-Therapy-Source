@@ -39,7 +39,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
             }
             else if (action == "Change E-Mail Address")
             {
-                (ChangeUserEMailStatus changeUserEMailStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.ChangeUserEMailAddress(UserSession.SessionToken, Password, UserSession.EMailAddress, NewEMailAddress, HttpHelper.GetRemoteAddress(Request), googleReCaptchaScore);
+                (ChangeUserEMailStatus changeUserEMailStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.ChangeUserEMailAddress(UserSession.SessionToken, Password, UserSession.EMailAddress, NewEMailAddress, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
 
                 Message = $"ChangeUserEMailStatusId = {changeUserEMailStatusId}";
             }

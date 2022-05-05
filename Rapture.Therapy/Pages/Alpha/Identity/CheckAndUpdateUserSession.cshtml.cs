@@ -28,13 +28,13 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 
             if (action == "Check")
             {
-                (SessionStatus sessionStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.CheckAndUpdateUserSession(UserSession.SessionToken, HttpHelper.GetRemoteAddress(Request));
+                (SessionStatus sessionStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.CheckAndUpdateUserSession(UserSession.SessionToken, HttpHelper.GetRemoteIpAddress(Request));
 
                 Message = $"SessionStatusId = {sessionStatusId}";
             }
             else if (action == "Sign Out")
             {
-                SignOutStatus signOutStatusId = EadentUserIdentity.SignOutUser(UserSession.SessionToken, HttpHelper.GetRemoteAddress(Request));
+                SignOutStatus signOutStatusId = EadentUserIdentity.SignOutUser(UserSession.SessionToken, HttpHelper.GetRemoteIpAddress(Request));
 
                 if (signOutStatusId != SignOutStatus.Error)
                 {

@@ -46,7 +46,7 @@ namespace Rapture.Therapy.PagesAdditional
             {
                 secret = RaptureTherapySettings.GoogleReCaptcha.Secret,
                 response = GoogleReCaptchaValue,
-                remoteip = HttpHelper.GetLocalAddress(Request)
+                remoteip = HttpHelper.GetLocalIpAddress(Request)
             };
 
             bool success = false;

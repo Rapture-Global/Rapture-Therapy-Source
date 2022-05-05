@@ -48,7 +48,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                     }
                     else
                     {
-                        DeleteUserStatus deleteUserStatusId = EadentUserIdentity.SoftUnDeleteUser(UserSession.SessionToken, userGuid, HttpHelper.GetRemoteAddress(Request));
+                        DeleteUserStatus deleteUserStatusId = EadentUserIdentity.SoftUnDeleteUser(UserSession.SessionToken, userGuid, HttpHelper.GetRemoteIpAddress(Request));
 
                         Message = $"DeleteUserStatusId = {deleteUserStatusId}";
                     }

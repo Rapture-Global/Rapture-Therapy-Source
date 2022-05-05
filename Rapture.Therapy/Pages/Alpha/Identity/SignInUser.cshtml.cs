@@ -59,7 +59,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                 }
                 else if (action == "Sign In")
                 {
-                    (SignInStatus signInStatusId, UserSessionEntity userSessionEntity, DateTime? previousUserSignInDateTimeUtc) = EadentUserIdentity.SignInUser(EMailAddress, Password, HttpHelper.GetRemoteAddress(Request), googleReCaptchaScore);
+                    (SignInStatus signInStatusId, UserSessionEntity userSessionEntity, DateTime? previousUserSignInDateTimeUtc) = EadentUserIdentity.SignInUser(EMailAddress, Password, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
 
                     if (signInStatusId == SignInStatus.Success)
                     {

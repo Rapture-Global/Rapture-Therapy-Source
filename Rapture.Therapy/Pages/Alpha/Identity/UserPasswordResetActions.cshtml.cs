@@ -52,7 +52,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                 }
                 else
                 {
-                    (UserPasswordResetRequestStatus passwordResetRequestStatusId, string resetToken, UserEntity userEntity) = EadentUserIdentity.BeginUserPasswordReset(EMailAddress, HttpHelper.GetRemoteAddress(Request), googleReCaptchaScore);
+                    (UserPasswordResetRequestStatus passwordResetRequestStatusId, string resetToken, UserEntity userEntity) = EadentUserIdentity.BeginUserPasswordReset(EMailAddress, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
 
                     Message = $"PasswordResetRequestStatusId = {passwordResetRequestStatusId}";
 
@@ -71,7 +71,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 
                 ResetToken = resetToken;
 
-                (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CheckAndUpdateUserPasswordReset(resetToken, HttpHelper.GetRemoteAddress(Request));
+                (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CheckAndUpdateUserPasswordReset(resetToken, HttpHelper.GetRemoteIpAddress(Request));
 
                 Message = $"PasswordResetRequestStatusId = {passwordResetRequestStatusId}";
             }
@@ -81,7 +81,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 
                 ResetToken = resetToken;
 
-                (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.AbortUserPasswordReset(resetToken, HttpHelper.GetRemoteAddress(Request));
+                (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.AbortUserPasswordReset(resetToken, HttpHelper.GetRemoteIpAddress(Request));
 
                 Message = $"PasswordResetRequestStatusId = {passwordResetRequestStatusId}";
             }

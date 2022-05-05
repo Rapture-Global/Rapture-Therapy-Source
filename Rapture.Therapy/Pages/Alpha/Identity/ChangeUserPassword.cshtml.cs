@@ -52,7 +52,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                 }
                 else
                 {
-                    (ChangeUserPasswordStatus changeUserPasswordStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.ChangeUserPassword(UserSession.SessionToken, OldPassword, NewPassword, HttpHelper.GetRemoteAddress(Request), googleReCaptchaScore);
+                    (ChangeUserPasswordStatus changeUserPasswordStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.ChangeUserPassword(UserSession.SessionToken, OldPassword, NewPassword, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
 
                     Message = $"ChangeUserPasswordStatusId = {changeUserPasswordStatusId}";
                 }

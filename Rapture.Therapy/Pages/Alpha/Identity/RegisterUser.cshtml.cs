@@ -84,7 +84,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                     }
                     else
                     {
-                        (RegisterUserStatus registerStatusId, UserEntity userEntity) = EadentUserIdentity.RegisterUser(RoleId, EMailAddress, DisplayName, Password, HttpHelper.GetRemoteAddress(Request), googleReCaptchaScore);
+                        (RegisterUserStatus registerStatusId, UserEntity userEntity) = EadentUserIdentity.RegisterUser(RoleId, EMailAddress, DisplayName, Password, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
 
                         if (registerStatusId == RegisterUserStatus.Success)
                         {
