@@ -24,7 +24,7 @@ namespace Rapture.Therapy.Sessions
             {
                 RoleId = roleEntity.RoleId;
                 RoleLevel = roleEntity.RoleLevel;
-                RoleName = roleEntity.Name;
+                RoleName = roleEntity.Role;
             }
         }
 

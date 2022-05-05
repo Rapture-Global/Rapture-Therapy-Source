@@ -16,12 +16,12 @@ namespace Rapture.Therapy.DataAccess.RaptureTherapy.Entities
 
         public int Patch { get; set; }
 
-        public int Build { get; set; }
+        public string Build { get; set; }
 
         public string Description { get; set; }
 
-        public DateTime ReleasedDateTimeUtc { get; set; }
+        public DateTime CreatedDateTimeUtc { get; set; }
 
-        public DateTime InstalledDateTimeUtc { get; set; }
+        public DateTime? LastUpdatedDateTimeUtc { get; set; }
     }
 }
