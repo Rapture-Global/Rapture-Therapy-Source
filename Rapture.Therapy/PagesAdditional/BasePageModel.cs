@@ -3,12 +3,9 @@ using Eadent.Common.WebApi.Helpers;
 using Eadent.Identity.Access;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Rapture.Therapy.Configuration;
 using Rapture.Therapy.DataTransferObjects.Google;
 using Rapture.Therapy.Sessions;
-using System.Threading.Tasks;
 
 namespace Rapture.Therapy.PagesAdditional
 {

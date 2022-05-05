@@ -1,6 +1,5 @@
 ﻿using Eadent.Common.DataAccess.EntityFramework.Databases;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Rapture.Therapy.Configuration;
 using Rapture.Therapy.DataAccess.RaptureTherapy.Entities;
 

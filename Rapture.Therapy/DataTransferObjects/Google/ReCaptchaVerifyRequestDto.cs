@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Rapture.Therapy.DataTransferObjects.Google
+﻿namespace Rapture.Therapy.DataTransferObjects.Google
 {
     public class ReCaptchaVerifyRequestDto : List<KeyValuePair<string, string>>
     {

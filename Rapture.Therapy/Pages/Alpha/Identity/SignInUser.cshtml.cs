@@ -1,14 +1,9 @@
-using System;
+using Eadent.Common.WebApi.Helpers;
 using Eadent.Identity.Access;
 using Eadent.Identity.DataAccess.EadentUserIdentity.Entities;
 using Eadent.Identity.Definitions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Rapture.Therapy.PagesAdditional;
-using System.Threading.Tasks;
-using Eadent.Common.WebApi.Helpers;
-using Microsoft.Extensions.Logging;
-using NLog;
 using Rapture.Therapy.Sessions;
 
 namespace Rapture.Therapy.Pages.Alpha.Identity

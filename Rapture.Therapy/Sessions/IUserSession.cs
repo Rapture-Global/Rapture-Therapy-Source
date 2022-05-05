@@ -1,7 +1,5 @@
 ﻿using Eadent.Identity.DataAccess.EadentUserIdentity.Entities;
 using Eadent.Identity.Definitions;
-using System;
-using System.Collections.Generic;
 
 namespace Rapture.Therapy.Sessions
 {

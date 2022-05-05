@@ -1,6 +1,4 @@
 using Eadent.Identity.Access;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Rapture.Therapy.PagesAdditional;
 using Rapture.Therapy.Sessions;
 

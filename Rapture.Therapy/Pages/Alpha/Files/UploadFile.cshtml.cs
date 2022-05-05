@@ -1,14 +1,7 @@
 using Eadent.Identity.Access;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Rapture.Therapy.PagesAdditional;
 using Rapture.Therapy.Sessions;
-using System;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace Rapture.Therapy.Pages.Alpha.Files
 {
