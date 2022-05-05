@@ -88,16 +88,16 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                         string userGuidString = null;
                         string mobilePhoneNumber = null;
 
-                        (RegisterUserStatus registerStatusId, UserEntity userEntity) = EadentUserIdentity.RegisterUser(createdByApplicationId, userGuidString, RoleId,
+                        (RegisterUserStatus registerUserStatusId, UserEntity userEntity) = EadentUserIdentity.RegisterUser(createdByApplicationId, userGuidString, RoleId,
                             DisplayName, EMailAddress, mobilePhoneNumber, Password, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
 
-                        if (registerStatusId == RegisterUserStatus.Success)
+                        if (registerUserStatusId == RegisterUserStatus.Success)
                         {
                             actionResult = Redirect("SignInUser");
                         }
                         else
                         {
-                            Message = $"RegisterStatusId = {registerStatusId}";
+                            Message = $"RegisterUserStatusId = {registerUserStatusId}";
                         }
                     }
                 }
