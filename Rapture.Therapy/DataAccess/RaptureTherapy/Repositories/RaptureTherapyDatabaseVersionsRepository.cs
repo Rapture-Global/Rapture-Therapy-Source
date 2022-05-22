@@ -1,4 +1,4 @@
-﻿using Eadent.Common.DataAccess.Repositories;
+﻿using Eadent.Common.DataAccess.EntityFramework.Repositories;
 using Rapture.Therapy.DataAccess.RaptureTherapy.Databases;
 using Rapture.Therapy.DataAccess.RaptureTherapy.Entities;
 
