@@ -13,11 +13,11 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
 {
     public class ResetPasswordModel : BasePageModel
     {
-        private const string ResetTokenName = "RaptureTherapy.Identity.ResetToken";
+        private const string SessionEMailAddress = "RaptureTherapy.EMailAddress";
+
+        private const string SessionUserPasswordResetCode = "RaptureTherapy.UserPasswordResetCode";
 
         public string Message { get; set; }
-
-        public string ResetToken { get; set; }
 
         [BindProperty]
         public string NewPassword { get; set; }
@@ -29,25 +29,12 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         {
         }
         
-        public void OnGet(string urlResetToken)
+        public void OnGet()
         {
-            var resetToken = Encoding.Unicode.GetString(Convert.FromBase64String(WebUtility.UrlDecode(urlResetToken)));
-
-            ResetToken = resetToken;
-
-            HttpContext.Session.SetString(ResetTokenName, resetToken);
-
-            (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CheckAndUpdateUserPasswordReset(resetToken, HttpHelper.GetRemoteIpAddress(Request));
-
-            Message = $"PasswordResetRequestStatusId = {passwordResetRequestStatusId}";
         }
 
-        public async Task OnPost()
+        public async Task OnPostAsync()
         {
-            var resetToken = HttpContext.Session.GetString(ResetTokenName);
-
-            ResetToken = resetToken;
-
             (bool success, decimal googleReCaptchaScore) = await GoogleReCaptcha();
 
             GoogleReCaptchaScore = googleReCaptchaScore;
@@ -62,9 +49,13 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
             }
             else
             {
-                (UserPasswordResetRequestStatus passwordResetRequestStatusId, UserPasswordResetEntity passwordResetEntity) = EadentUserIdentity.CommitUserPasswordReset(resetToken, NewPassword, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
+                var eMailAddress = HttpContext.Session.GetString(SessionEMailAddress);
 
-                Message = $"PasswordResetRequestStatusId = {passwordResetRequestStatusId}";
+                var userPasswordResetCode = HttpContext.Session.GetString(SessionUserPasswordResetCode);
+
+                UserPasswordResetStatus userPasswordResetStatusId = await EadentUserIdentity.CommitUserPasswordResetAsync(eMailAddress, userPasswordResetCode, NewPassword, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
+
+                Message = $"UserPasswordResetStatusId = {userPasswordResetStatusId}";
             }
         }
     }
