@@ -44,7 +44,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
             DomainUrl = $"{Request.Scheme}://{Request.Host}/";
         }
 
-        public async Task<IActionResult> OnPost(string action)
+        public async Task<IActionResult> OnPostAsync(string action)
         {
             IActionResult actionResult = Page();
 
@@ -85,8 +85,8 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                         string userGuidString = null;
                         string mobilePhoneNumber = null;
 
-                        (RegisterUserStatus registerUserStatusId, UserEntity userEntity) = EadentUserIdentity.RegisterUser(createdByApplicationId, userGuidString, RoleId,
-                            DisplayName, EMailAddress, mobilePhoneNumber, Password, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
+                        (RegisterUserStatus registerUserStatusId, UserEntity userEntity) = await EadentUserIdentity.RegisterUserAsync(createdByApplicationId, userGuidString, RoleId,
+                            DisplayName, EMailAddress, mobilePhoneNumber, Password, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
 
                         if (registerUserStatusId == RegisterUserStatus.Success)
                         {

@@ -23,7 +23,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         {
         }
 
-        public async Task<IActionResult> OnPost(string action)
+        public async Task<IActionResult> OnPostAsync(string action)
         {
             IActionResult actionResult = Page();
 
@@ -45,7 +45,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                     }
                     else
                     {
-                        DeleteUserStatus deleteUserStatusId = EadentUserIdentity.SoftDeleteUser(UserSession.SessionToken, userGuid, HttpHelper.GetRemoteIpAddress(Request));
+                        DeleteUserStatus deleteUserStatusId = await EadentUserIdentity.SoftDeleteUserAsync(UserSession.SessionToken, userGuid, HttpHelper.GetRemoteIpAddress(Request), HttpContext.RequestAborted);
 
                         Message = $"DeleteUserStatusId = {deleteUserStatusId}";
                     }

@@ -32,7 +32,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         {
         }
 
-        public async Task<IActionResult> OnPost(string action)
+        public async Task<IActionResult> OnPostAsync(string action)
         {
             IActionResult actionResult = Page();
 
@@ -55,7 +55,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                 }
                 else if (action == "Sign In")
                 {
-                    (SignInStatus signInStatusId, UserSessionEntity userSessionEntity, DateTime? previousUserSignInDateTimeUtc) = EadentUserIdentity.SignInUser(SignInType.WebSite, EMailAddress, Password, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
+                    (SignInStatus signInStatusId, UserSessionEntity userSessionEntity, DateTime? previousUserSignInDateTimeUtc) = await EadentUserIdentity.SignInUserAsync(SignInType.WebSite, EMailAddress, Password, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
 
                     if (signInStatusId == SignInStatus.Success)
                     {

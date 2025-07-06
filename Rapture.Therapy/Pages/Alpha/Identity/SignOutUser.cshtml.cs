@@ -19,13 +19,13 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         {
         }
 
-        public IActionResult OnPost(string action)
+        public async Task<IActionResult> OnPostAsync(string action)
         {
             IActionResult actionResult = Page();
 
             if (action == "Sign Out")
             {
-                SignOutStatus signOutStatusId = EadentUserIdentity.SignOutUser(UserSession.SessionToken, HttpHelper.GetRemoteIpAddress(Request));
+                SignOutStatus signOutStatusId = await EadentUserIdentity.SignOutUserAsync(UserSession.SessionToken, HttpHelper.GetRemoteIpAddress(Request), HttpContext.RequestAborted);
 
                 if (signOutStatusId != SignOutStatus.Error)
                 {

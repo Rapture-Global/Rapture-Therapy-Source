@@ -23,7 +23,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         {
         }
 
-        public async Task<IActionResult> OnPost(string action)
+        public async Task<IActionResult> OnPostAsync(string action)
         {
             IActionResult actionResult = Page();
 
@@ -37,7 +37,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
             }
             else if (action == "Change E-Mail Address")
             {
-                (ChangeUserEMailStatus changeUserEMailStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.ChangeUserEMailAddress(UserSession.SessionToken, Password, UserSession.EMailAddress, NewEMailAddress, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
+                (ChangeUserEMailStatus changeUserEMailStatusId, UserSessionEntity userSessionEntity) = await EadentUserIdentity.ChangeUserEMailAddressAsync(UserSession.SessionToken, Password, UserSession.EMailAddress, NewEMailAddress, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
 
                 Message = $"ChangeUserEMailStatusId = {changeUserEMailStatusId}";
             }

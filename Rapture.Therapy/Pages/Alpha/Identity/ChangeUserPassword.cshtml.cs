@@ -30,7 +30,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         {
         }
 
-        public async Task<IActionResult> OnPost(string action)
+        public async Task<IActionResult> OnPostAsync(string action)
         {
             IActionResult actionResult = Page();
 
@@ -50,7 +50,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                 }
                 else
                 {
-                    (ChangeUserPasswordStatus changeUserPasswordStatusId, UserSessionEntity userSessionEntity) = EadentUserIdentity.ChangeUserPassword(UserSession.SessionToken, OldPassword, NewPassword, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore);
+                    (ChangeUserPasswordStatus changeUserPasswordStatusId, UserSessionEntity userSessionEntity) = await EadentUserIdentity.ChangeUserPasswordAsync(UserSession.SessionToken, OldPassword, NewPassword, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
 
                     Message = $"ChangeUserPasswordStatusId = {changeUserPasswordStatusId}";
                 }
