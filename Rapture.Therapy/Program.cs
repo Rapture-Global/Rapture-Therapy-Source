@@ -36,7 +36,7 @@ services.AddHttpContextAccessor();
 builder.Configuration.GetSection(EadentIdentitySettings.SectionName).Get<EadentIdentitySettings>();
 builder.Configuration.GetSection(RaptureTherapySettings.SectionName).Get<RaptureTherapySettings>();
 
-Eadent.Identity.Startup.ConfigureServices(services);
+Eadent.Identity.Startup.ConfigureServices(services, null);
 
 var databaseSettings = RaptureTherapySettings.Instance.Database;
 
