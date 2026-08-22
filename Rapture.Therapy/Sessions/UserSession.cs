@@ -122,7 +122,7 @@ namespace Rapture.Therapy.Sessions
 
                 if (userSessionToken != null)
                 {
-                    (sessionStatusId, userSessionEntity) = eadentUserIdentity.CheckAndUpdateUserSession(userSessionToken,  HttpHelper.GetRemoteIpAddress(HttpContext?.Request));
+                    (sessionStatusId, userSessionEntity) = eadentUserIdentity.CheckAndUpdateUserSession(userSessionToken, HttpHelper.GetRemoteIpAddress(HttpContext?.Request));
 
                     if (userSessionEntity != null)
                     {
