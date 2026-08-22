@@ -1,6 +1,7 @@
 ﻿using Eadent.Common.WebApi.ApiClient;
 using Eadent.Common.WebApi.Helpers;
 using Eadent.Identity.Access;
+using Eadent.Identity.DataAccess.EadentUserIdentity.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Rapture.Therapy.Configuration;
@@ -61,6 +62,11 @@ namespace Rapture.Therapy.PagesAdditional
             }
 
             return (success, googleReCaptchaScore);
+        }
+
+        protected void RefreshUserSession(UserSessionEntity userSessionEntity)
+        {
+            UserSession.Refresh(userSessionEntity);
         }
     }
 }

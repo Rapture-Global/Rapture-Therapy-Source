@@ -30,6 +30,8 @@ namespace Rapture.Therapy.Sessions
 
         void SignIn(UserSessionEntity userSessionEntity);
 
+        void Refresh(UserSessionEntity userSessionEntity);
+
         void SignOut();
 
         void Clear();

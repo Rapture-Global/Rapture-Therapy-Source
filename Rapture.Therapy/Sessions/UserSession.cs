@@ -75,6 +75,14 @@ namespace Rapture.Therapy.Sessions
                     Roles.Add(role);
                 }
             }
+            else
+            {
+                IsSignedIn = false;
+                IsPrivileged = false;
+                EMailAddress = null;
+                DisplayName = null;
+                Roles = null;
+            }
         }
 
         private void HandleSignedOutGuid()
@@ -152,6 +160,23 @@ namespace Rapture.Therapy.Sessions
             }
 
             SetSessionTokenAndLoggingGuid();
+        }
+
+        public void Refresh(UserSessionEntity userSessionEntity)
+        {
+            if (userSessionEntity == null)
+            {
+                Clear();
+            }
+            else
+            {
+                SessionToken = userSessionEntity.UserSessionToken;
+                SessionGuid = userSessionEntity.UserSessionGuid;
+
+                HandleSignedInSession(userSessionEntity);
+
+                SetSessionTokenAndLoggingGuid();
+            }
         }
 
         public void SignOut()
