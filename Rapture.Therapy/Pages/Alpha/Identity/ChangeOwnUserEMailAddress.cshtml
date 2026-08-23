@@ -1,20 +1,20 @@
 ﻿@page
-@model Rapture.Therapy.Pages.Alpha.Identity.ChangeUserDisplayNameModel
+@model Rapture.Therapy.Pages.Alpha.Identity.ChangeOwnUserEMailAddressModel
 @{
-    ViewData["Title"] = "Change User Display Name";
+    ViewData["Title"] = "Change Own User E-Mail Address";
     Layout = "_LayoutAlpha";
 }
 
 <script src="https://www.google.com/recaptcha/api.js?render=@Model.GoogleReCaptchaSiteKey"></script>
 <script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute('@Model.GoogleReCaptchaSiteKey', { action: 'homepage' }).then(function(token) {
+    grecaptcha.ready(function () {
+        grecaptcha.execute('@Model.GoogleReCaptchaSiteKey', { action: 'homepage' }).then(function (token) {
             document.getElementById("GoogleReCaptchaValueId").value = token;
         });
     });
 </script>
 
-<h3>Alpha - Change User Display Name</h3>
+<h3>Alpha - Change Own User E-Mail Address</h3>
 
 <form method="POST">
     <div>
@@ -37,10 +37,12 @@
     <br />
     <div>Message: <span>@Model.Message</span></div>
     <br />
+    <p><strong>NOTE:</strong> For the purposes of this Alpha Software, any text may be used for the E-Mail Address Field.</p>
 
-    <div>New Display Name: <input type="text" asp-for="NewDisplayName" /></div>
+    <div>Password: <input type="password" asp-for="Password" /></div>
+    <div>New E-Mail Address: <input type="text" asp-for="NewEMailAddress" /></div>
     <br />
-    <input type="submit" name="Action" value="Change Display Name" />
+    <input type="submit" name="Action" value="Change E-Mail Address" />
 
     <input type="hidden" id="GoogleReCaptchaValueId" asp-for="GoogleReCaptchaValue" />
 </form>

@@ -9,7 +9,7 @@ using Rapture.Therapy.Sessions;
 
 namespace Rapture.Therapy.Pages.Alpha.Identity
 {
-    public class ChangeUserPasswordModel : BasePageModel
+    public class ChangeOwnUserPasswordModel : BasePageModel
     {
         public string Message { get; set; }
 
@@ -22,7 +22,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         [BindProperty]
         public string ConfirmPassword { get; set; }
 
-        public ChangeUserPasswordModel(ILogger<ChangeUserPasswordModel> logger, IConfiguration configuration, IUserSession userSession, IEadentUserIdentity eadentUserIdentity) : base(logger, configuration, userSession, eadentUserIdentity)
+        public ChangeOwnUserPasswordModel(ILogger<ChangeOwnUserPasswordModel> logger, IConfiguration configuration, IUserSession userSession, IEadentUserIdentity eadentUserIdentity) : base(logger, configuration, userSession, eadentUserIdentity)
         {
         }
 
@@ -53,6 +53,8 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                     (ChangeUserPasswordStatus changeUserPasswordStatusId, UserSessionEntity userSessionEntity) = await EadentUserIdentity.ChangeOwnUserPasswordAsync(UserSession.SessionToken, OldPassword, NewPassword, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
 
                     Message = $"ChangeUserPasswordStatusId = {changeUserPasswordStatusId}";
+
+                    RefreshUserSession(userSessionEntity);
                 }
             }
 

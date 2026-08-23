@@ -9,7 +9,7 @@ using Rapture.Therapy.Sessions;
 
 namespace Rapture.Therapy.Pages.Alpha.Identity
 {
-    public class ChangeUserEMailAddressModel : BasePageModel
+    public class ChangeOwnUserEMailAddressModel : BasePageModel
     {
         public string Message { get; set; }
 
@@ -19,7 +19,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
         [BindProperty]
         public string NewEMailAddress { get; set; }
 
-        public ChangeUserEMailAddressModel(ILogger<ChangeUserEMailAddressModel> logger, IConfiguration configuration, IUserSession userSession, IEadentUserIdentity eadentUserIdentity) : base(logger, configuration, userSession, eadentUserIdentity)
+        public ChangeOwnUserEMailAddressModel(ILogger<ChangeOwnUserEMailAddressModel> logger, IConfiguration configuration, IUserSession userSession, IEadentUserIdentity eadentUserIdentity) : base(logger, configuration, userSession, eadentUserIdentity)
         {
         }
 
@@ -40,6 +40,8 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
                 (ChangeUserEMailStatus changeUserEMailStatusId, UserSessionEntity userSessionEntity) = await EadentUserIdentity.ChangeOwnUserEMailAddressAsync(UserSession.SessionToken, Password, UserSession.EMailAddress, NewEMailAddress, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
 
                 Message = $"ChangeUserEMailStatusId = {changeUserEMailStatusId}";
+
+                RefreshUserSession(userSessionEntity);
             }
 
             return actionResult;
