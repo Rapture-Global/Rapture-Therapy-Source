@@ -35,7 +35,7 @@ namespace Rapture.Therapy.Pages.Alpha.Identity
             }
             else if (action == "Change Display Name")
             {
-                (ChangeUserDisplayNameStatus changeUserDisplayNameStatusId, UserSessionEntity userSessionEntity) = await EadentUserIdentity.ChangeUserDisplayNameAsync(UserSession.SessionToken, NewDisplayName, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
+                (ChangeUserDisplayNameStatus changeUserDisplayNameStatusId, UserSessionEntity userSessionEntity) = await EadentUserIdentity.ChangeOwnUserDisplayNameAsync(UserSession.SessionToken, NewDisplayName, HttpHelper.GetRemoteIpAddress(Request), googleReCaptchaScore, HttpContext.RequestAborted);
 
                 Message = $"ChangeUserDisplayNameStatusId = {changeUserDisplayNameStatusId}";
 
